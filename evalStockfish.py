@@ -4,7 +4,7 @@ import random
 
 def main():
     #create stockfish instances
-    #test 1 depth at a time
+    #test 1 depth at a time, want to test ~15-20 as depth
     #test different hash sizes-128,256,512
     inDepth = int(input(prompt="Input Engine Depth:"))
     stock1 = Stockfish(path="/usr/local/Cellar/stockfish/15/bin/stockfish",
@@ -31,5 +31,4 @@ def main():
             randList.append(a)
     
         
-
 main()
