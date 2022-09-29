@@ -2,13 +2,13 @@ import chess.pgn
 import csv
 
 def main():
-    PGN = open('/Users/admin/Desktop/Lichess/data.pgn')
-    FEN = open('/Users/admin/Desktop/Lichess/FEN.txt','w')
+    PGN = open('/Users/admin/Desktop/chess-games/data.pgn')
+    FEN = open('/Users/admin/Desktop/chess-games/FEN.txt','w')
     current = chess.pgn.read_game(PGN)
     board = current.board()
     pgnType = type(current)
     fens = dict()
-    with open('/Users/admin/Desktop/Lichess/games.csv','w',newline='')as games:
+    with open('/Users/admin/Desktop/chess-games/games.csv','w',newline='')as games:
         gameWriter = csv.writer(games)
         while type(current)==pgnType:
             board.reset()
@@ -37,7 +37,7 @@ def main():
                 else:
                     fens[tempFEN] = 1
             current = chess.pgn.read_game(PGN)
-    with open('/Users/admin/Desktop/Lichess/FENeval.txt','w') as f:
+    with open('/Users/admin/Desktop/chess-games/FENeval.txt','w') as f:
         for key,value in fens.items():
             f.write('%s:%s\n'%(key,value))
     PGN.close()
